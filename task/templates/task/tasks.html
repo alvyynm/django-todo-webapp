@@ -1,0 +1,15 @@
+
+{% extends 'task/base.html' %}
+
+{% block content %}
+    <h1>My Tasks</h1>
+
+    <p class="lead">
+        Here is what you have planned so far...
+      </p>
+    <ol class="list-group list-group-numbered">
+        {% for my_task in my_tasks %}
+            <li class="list-group-item">{{ my_task }}</li>
+        {% endfor %}
+    </ol>
+{% endblock content %}

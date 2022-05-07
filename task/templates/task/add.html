@@ -1,0 +1,13 @@
+{% extends 'task/base.html' %}
+
+{% block content %}
+    <h1>Add Tasks</h1>
+    <p class="lead"> What do you plan to take on today? </p>
+
+      <form action="{%url 'task-view'%}" method="post">
+        {% csrf_token %}
+        <label for="3" class="form-label">Task Name:</label>
+        <input type="text" name="task" ><br><br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+{% endblock content %}
