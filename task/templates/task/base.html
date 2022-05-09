@@ -28,8 +28,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'task-view' %}">My Tasks</a>
-              <a class="nav-item nav-link" href="{% url 'task-add' %}">Add Tasks</a>
+              {% if request.user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'task-view' %}">My Tasks</a>
+                <a class="nav-item nav-link" href="{% url 'task-add' %}">Add Tasks</a>
+              {% else %}
+              {% endif %}
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
