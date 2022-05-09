@@ -7,5 +7,5 @@ class Task(models.Model):
     task_duedate = models.DateField()
     task_priority = models.IntegerField()
 
-    def __str__(self):
-        self.task_name
+    # def __str__(self):
+    #     self.task_name
