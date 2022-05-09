@@ -1,5 +1,6 @@
-from enum import auto
+# from enum import auto
 from django.db import models
+
 
 class Task(models.Model):
     task_name = models.CharField(max_length=40)
@@ -7,5 +8,5 @@ class Task(models.Model):
     task_duedate = models.DateField()
     task_priority = models.IntegerField()
 
-    # def __str__(self):
-    #     self.task_name
+    def __str__(self):
+        return self.task_name
