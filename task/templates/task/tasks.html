@@ -9,7 +9,7 @@
       </p>
     <ol class="list-group list-group-numbered">
         {% for task in tasks %}
-            <li class="list-group-item">{{ task.task_name }}</li>
+            <a href="/task{{ task.id }}"><li class="list-group-item">{{ task.task_name }}</li></a>
         {% endfor %}
     </ol>
 {% endblock content %}

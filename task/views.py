@@ -23,6 +23,14 @@ def tasks(request):
     #     return render(request, 'task/tasks.html', {
     #         'my_tasks': my_tasks
     #     })
+
+def task_detail(request, task_id):
+    todo = Task.objects.get(id=task_id)
+    context = {
+        "todo": todo
+    }
+    return render(request, 'task/task_detail.html', context)
+
 def add(request):
     return render(request, 'task/add.html')
     
