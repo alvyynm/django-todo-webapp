@@ -46,6 +46,12 @@ def update(request, task_id):
         return redirect('task-view') 
     return render(request,'task/update.html', {"form": form})
 
+def delete(request, task_id):
+    todo = Task.objects.get(id=task_id)
+    todo.delete()
+    return redirect('task-view')
+
+
 def about(request):
     return render(request, 'task/about.html')
 
