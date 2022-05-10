@@ -1,8 +1,6 @@
-from multiprocessing import context
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from .models import Task
-# Create your views here.
+from .forms import ToDoForm
 
 def home(request):
     return render(request, 'task/index.html')
@@ -32,7 +30,13 @@ def task_detail(request, task_id):
     return render(request, 'task/task_detail.html', context)
 
 def add(request):
-    return render(request, 'task/add.html')
+        form = ToDoForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('task-view')  
+
+        else:
+                return render(request,'task/add.html', {"form": form})
     
 def about(request):
     return render(request, 'task/about.html')

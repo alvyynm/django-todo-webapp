@@ -12,4 +12,5 @@
             <a href="/task{{ task.id }}"><li class="list-group-item">{{ task.task_name }}</li></a>
         {% endfor %}
     </ol>
+    <button><a href="{% url 'task-add' %}">Create a new task</a></button>
 {% endblock content %}

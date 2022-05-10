@@ -1,13 +1,15 @@
 {% extends 'task/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>Add Tasks</h1>
+    <h3>Create New Tasks</h3xs>
     <p class="lead"> What do you plan to take on today? </p>
 
-      <form action="{%url 'task-view'%}" method="post">
+      <form action="{%url 'task-add'%}" method="post">
         {% csrf_token %}
-        <label for="3" class="form-label">Task Name:</label>
-        <input type="text" name="task" ><br><br>
+
+        {{ form|crispy }}
+
         <input type="submit" value="Submit" class="btn btn-primary">
     </form>
 {% endblock content %}
