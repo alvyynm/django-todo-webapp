@@ -8,8 +8,8 @@
         Here is what you have planned so far...
       </p>
     <ol class="list-group list-group-numbered">
-        {% for my_task in my_tasks %}
-            <li class="list-group-item">{{ my_task }}</li>
+        {% for task in tasks %}
+            <li class="list-group-item">{{ task.task_name }}</li>
         {% endfor %}
     </ol>
 {% endblock content %}

@@ -1,24 +1,28 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Task
 # Create your views here.
-
-my_tasks = []
 
 def home(request):
     return render(request, 'task/index.html')
 
 def tasks(request):
-    if request.method == 'POST':
-        task = request.POST["task"]
-        my_tasks.append(task)
-        return render(request, 'task/tasks.html', {
-            'my_tasks': my_tasks
-        })
-    else:
-        return render(request, 'task/tasks.html', {
-            'my_tasks': my_tasks
-        })
+    todos = Task.objects.all()
+    context = {
+        "tasks": todos
+    }
+    return render(request, 'task/tasks.html', context)
+    # if request.method == 'POST':
+    #     task = request.POST["task"]
+    #     my_tasks.append(task)
+    #     return render(request, 'task/tasks.html', {
+    #         'my_tasks': my_tasks
+    #     })
+    # else:
+    #     return render(request, 'task/tasks.html', {
+    #         'my_tasks': my_tasks
+    #     })
 def add(request):
     return render(request, 'task/add.html')
     
