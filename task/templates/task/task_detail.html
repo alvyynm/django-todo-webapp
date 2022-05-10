@@ -7,5 +7,5 @@
     <p>Due Date: {{ todo.task_duedate }}</p>
     <p>Priority: {{ todo.task_priority }}</p>
     <p>{{ todo.id }}</p>
-
+<a href="/task{{ todo.id }}/update">Update task</a>
 {% endblock content %}

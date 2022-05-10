@@ -37,7 +37,15 @@ def add(request):
 
         else:
                 return render(request,'task/add.html', {"form": form})
-    
+
+def update(request, task_id):
+    todo = Task.objects.get(id=task_id)
+    form = ToDoForm(request.POST or None, instance=todo)
+    if form.is_valid():
+        form.save()
+        return redirect('task-view') 
+    return render(request,'task/update.html', {"form": form})
+
 def about(request):
     return render(request, 'task/about.html')
 
